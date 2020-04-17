@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.HomePage;
+import pages.LoginPage;
 import utils.Browser;
 
 public class BaseTest {
@@ -15,6 +16,7 @@ public class BaseTest {
     public WebDriverWait wait;
 
     public HomePage homePage;
+    public LoginPage loginPage;
 
     private static final int TIMEOUT = 20;
     private static final String URL = "https://www.neptun.mk/";
@@ -46,6 +48,8 @@ public class BaseTest {
         wait = new WebDriverWait(driver, TIMEOUT);
 
         homePage = new HomePage(driver, wait);
+        loginPage = new LoginPage(driver, wait);
+
 
         driver.get(URL);
     }
